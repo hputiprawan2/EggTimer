@@ -21,12 +21,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var countDownLabel: UILabel!
+    @IBOutlet weak var stopButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        stopButton.layer.cornerRadius = 10.0
+    }
     
     @IBAction func hardnessSelected(_ sender: UIButton) {
         let hardness = sender.currentTitle!
         label.text = hardness
-        secondRemaining = eggTime[hardness]!
-        totalTime = eggTime[hardness]!
+        secondRemaining = eggTime[hardness]! * 60
+        totalTime = eggTime[hardness]! * 60
         timer.invalidate()
         progressBar.progress = 0.0
         secondPassed = 0
@@ -54,11 +60,15 @@ class ViewController: UIViewController {
     private func countdown() {
         let minutes = String(secondRemaining / 60)
         let seconds = String(secondRemaining % 60)
-        if secondRemaining > 0 {
+        if secondRemaining >= 0 {
             secondRemaining -= 1
             self.countDownLabel.text = "Remaining Time: \(minutes):\(seconds) minutes"
             print ("\(minutes):\(seconds) minutes")
         }
-        
+    }
+    
+    @IBAction func pressedStopButton(_ sender: UIButton) {
+        player?.stop()
+        timer.invalidate()
     }
 }
