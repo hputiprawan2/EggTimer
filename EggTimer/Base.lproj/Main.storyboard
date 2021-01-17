@@ -123,7 +123,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJN-th-c5K" userLabel="Timer View">
                                         <rect key="frame" x="0.0" y="571.5" width="374" height="246.5"/>
                                         <subviews>
-                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="h6b-dj-fJC">
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="h6b-dj-fJC">
                                                 <rect key="frame" x="0.0" y="120.5" width="374" height="6"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="5" id="2qd-5B-PF0"/>
@@ -131,9 +131,17 @@
                                                 <color key="progressTintColor" systemColor="systemYellowColor"/>
                                                 <color key="trackTintColor" red="0.5845141411" green="0.59195226430000003" blue="0.60392582419999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </progressView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remaining Time: 0:0 Minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooK-lP-2Z8">
+                                                <rect key="frame" x="69" y="91.5" width="236.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="h6b-dj-fJC" firstAttribute="top" secondItem="ooK-lP-2Z8" secondAttribute="bottom" constant="8.5" id="4lO-gc-5br"/>
                                             <constraint firstItem="h6b-dj-fJC" firstAttribute="leading" secondItem="nJN-th-c5K" secondAttribute="leading" id="V0g-sY-4qD"/>
+                                            <constraint firstItem="ooK-lP-2Z8" firstAttribute="centerX" secondItem="nJN-th-c5K" secondAttribute="centerX" id="c52-8U-7iO"/>
                                             <constraint firstAttribute="trailing" secondItem="h6b-dj-fJC" secondAttribute="trailing" id="ggh-hs-OBl"/>
                                             <constraint firstItem="h6b-dj-fJC" firstAttribute="centerY" secondItem="nJN-th-c5K" secondAttribute="centerY" id="z9E-Qr-q3P"/>
                                         </constraints>
@@ -151,6 +159,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="countDownLabel" destination="ooK-lP-2Z8" id="8gy-3o-NCf"/>
                         <outlet property="label" destination="XLm-5r-pSP" id="vsu-Xn-PjX"/>
                         <outlet property="progressBar" destination="h6b-dj-fJC" id="lKz-xp-E2E"/>
                     </connections>
